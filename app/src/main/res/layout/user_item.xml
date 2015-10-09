@@ -14,18 +14,51 @@
         android:background="@drawable/ic_avatar" />
 
 
-        <com.example.admin.prclosechat_android.view.AutoResizeTextView
-            android:id="@+id/tvUserName"
-            android:layout_toRightOf="@+id/imgAvr"
-            android:layout_width="match_parent"
+    <com.example.admin.prclosechat_android.view.AutoResizeTextView
+        android:id="@+id/tvUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/size_5dp"
+        android:layout_toRightOf="@+id/imgAvr"
+        android:ellipsize="none"
+        android:maxLines="1"
+        android:text="Title"
+        android:textColor="@color/back1"
+        android:textSize="@dimen/textsize_25sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/size_10dp"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:ellipsize="none"
-            android:maxLines="1"
-            android:layout_marginLeft="@dimen/size_5dp"
-            android:textColor="@color/back1"
-            android:text="Title"
-            android:textSize="@dimen/textsize_25sp"
-            android:textStyle="bold" />
+            android:src="@drawable/ic_add" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/size_10dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"
+        android:visibility="invisible">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_uncheck" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_check" />
+    </LinearLayout>
 
 </RelativeLayout>

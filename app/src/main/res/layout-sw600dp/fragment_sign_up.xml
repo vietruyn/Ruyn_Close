@@ -28,8 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvNameApp"
-        android:layout_marginLeft="@dimen/size_12dp"
-        android:layout_marginRight="@dimen/size_12dp"
+        android:layout_marginLeft="@dimen/size_20dp"
+        android:layout_marginRight="@dimen/size_20dp"
         android:layout_marginTop="@dimen/size_30dp"
         android:orientation="vertical">
 
