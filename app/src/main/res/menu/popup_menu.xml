@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    <item
+        android:id="@+id/callApp"
+        android:title="Call App"
+        android:icon="@drawable/icpop_callappp"/>
+
+    <item
+        android:id="@+id/callPhone"
+        android:icon="@drawable/icpop_calllogs"
+        android:title="Call Phone"/>
+
+    <item
+        android:id="@+id/chat"
+        android:icon="@drawable/icpop_chat"
+        android:title="Chat"/>
+    <item
+        android:id="@+id/sms"
+        android:icon="@drawable/icpop_sms"
+        android:title="SMS"/>
+</menu>
