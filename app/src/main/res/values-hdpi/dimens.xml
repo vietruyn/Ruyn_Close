@@ -21,10 +21,10 @@
     <dimen name="size_35dp">35dp</dimen>
     <dimen name="size_40dp">40dp</dimen>
     <dimen name="size_48dp">48dp</dimen>
-    <dimen name="size_64">64dp</dimen>
-    <dimen name="size_104dp">104dp</dimen>
-    <dimen name="size_216dp">216dp</dimen>
-    <dimen name="size_206dp">206dp</dimen>
-    <dimen name="size_60">60dp</dimen>
+    <dimen name="size_64">42dp</dimen>
+    <dimen name="size_104dp">69dp</dimen>
+    <dimen name="size_216dp">144dp</dimen>
+    <dimen name="size_206dp">137dp</dimen>
+    <dimen name="size_60">40dp</dimen>
 
 </resources>

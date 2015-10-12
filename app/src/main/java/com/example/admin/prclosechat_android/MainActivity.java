@@ -19,21 +19,19 @@ public class MainActivity extends FragmentActivity {
     private LinearLayout lnLogin, lnSignUp;
     private boolean detailPage = false;
     private Fragment fr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ActionBar actionBar = getActionBar();
 
-        RegisterFragment registerFragment;
-        LoginFragment loginFragment;
         actionBar.hide();
-
         init();
         /**
          * Event when frm is null
          */
-           }
+    }
 
     /**
      * Initialization

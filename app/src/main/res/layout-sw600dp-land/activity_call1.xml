@@ -7,7 +7,7 @@
     <LinearLayout
         android:id="@+id/div1"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_48dp"
+        android:layout_height="@dimen/size_60"
         android:background="@drawable/shape_item_list"
         android:gravity="center">
 
@@ -18,12 +18,13 @@
             android:textSize="@dimen/textsize_24sp"
             android:textStyle="bold" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/div1"
         android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/size_10dp"
+        android:layout_marginTop="@dimen/size_20dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -54,55 +55,6 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/div3"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/size_40dp"
-        android:layout_above="@+id/lnCallOff"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/back1"
-        android:orientation="horizontal">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_vollum"
-                android:scaleType="centerInside"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:src="@drawable/ic_showkeyboard"
-                android:scaleType="centerInside"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/ic_void"
-                android:scaleType="centerInside"/>
-        </RelativeLayout>
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/lnCallOff"

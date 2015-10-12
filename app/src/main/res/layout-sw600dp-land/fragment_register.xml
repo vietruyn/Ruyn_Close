@@ -72,7 +72,7 @@
         <Button
             android:id="@+id/btnJoinNow"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/size_40dp"
+            android:layout_height="@dimen/size_48dp"
             android:layout_marginBottom="@dimen/size_10dp"
             android:background="@drawable/shape_button_sigin"
             android:paddingLeft="@dimen/size_10dp"
