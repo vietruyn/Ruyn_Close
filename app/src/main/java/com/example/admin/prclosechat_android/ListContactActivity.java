@@ -1,17 +1,15 @@
 package com.example.admin.prclosechat_android;
 
-import android.app.ActionBar;
 import android.app.Activity;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.example.admin.prclosechat_android.adapter.UserAdapter;
@@ -32,27 +30,20 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ListContactActivity extends Activity {
+public class ListContactActivity extends Activity implements View.OnClickListener {
 
-    ListView listView;
-    UserAdapter adapter;
-    ArrayList<User> userArrayList;
-    DBHandler handler;
+    private ListView listView;
+    private UserAdapter adapter;
+    private ArrayList<User> userArrayList;
+    private DBHandler handler;
+    private LinearLayout lnCallapp, lnCallphone, lnChat, lnSms;
+    private Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_contact);
         listView = (ListView) findViewById(R.id.listview);
-        ActionBar actionBar = getActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1f1f1f")));
-        actionBar.setTitle("List Contact");
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
         handler = new DBHandler(this);
         NetworkUtils utils = new NetworkUtils(ListContactActivity.this);
         callAsyncTask(utils);
@@ -75,24 +66,57 @@ public class ListContactActivity extends Activity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     ArrayList<User> userList = handler.getAllUser();
                     Toast.makeText(ListContactActivity.this, " " + userList.get(position).getName(), Toast.LENGTH_LONG).show();
-                    //Creating the instance of PopupMenu
-                    PopupMenu popup = new PopupMenu(ListContactActivity.this, view);
-                    //Inflating the Popup using xml file
-                    popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
-
-                    //registering popup with OnMenuItemClickListener
-                    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        public boolean onMenuItemClick(MenuItem item) {
-                            Toast.makeText(ListContactActivity.this, "You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
-                            return true;
-                        }
-                    });
-
-                    popup.show();//showing popup menu
-
+//                    showPopupWindow(view);
+                    dialog = new Dialog(ListContactActivity.this, R.style.mydialogstyle);
+                    dialog.setContentView(R.layout.custom_dialog);
+                    initDialog(dialog);
+                    dialog.show();
                 }
             });
         }
+    }
+
+    /**
+     * @param dialog
+     */
+    private void initDialog(Dialog dialog) {
+        lnCallapp = (LinearLayout) dialog.findViewById(R.id.callApp);
+        lnCallphone = (LinearLayout) dialog.findViewById(R.id.callPhone);
+        lnChat = (LinearLayout) dialog.findViewById(R.id.chat);
+        lnSms = (LinearLayout) dialog.findViewById(R.id.sms);
+
+        lnCallapp.setOnClickListener(this);
+        lnCallphone.setOnClickListener(this);
+        lnChat.setOnClickListener(this);
+        lnSms.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.callApp:
+                Intent mIntent = new Intent(ListContactActivity.this, Call1Activity.class);
+                startActivity(mIntent);
+                dialog.hide();
+                break;
+            case R.id.callPhone:
+                Intent mIntent1 = new Intent(ListContactActivity.this, Call2Activity.class);
+                startActivity(mIntent1);
+                dialog.hide();
+                break;
+            case R.id.chat:
+                Intent mIntent2 = new Intent(ListContactActivity.this, Call1Activity.class);
+                startActivity(mIntent2);
+                dialog.hide();
+                break;
+            case R.id.sms:
+                Intent mIntent3 = new Intent(ListContactActivity.this, Call1Activity.class);
+                startActivity(mIntent3);
+                dialog.hide();
+                break;
+            default:
+        }
+
     }
 
     /**
@@ -150,5 +174,11 @@ public class ListContactActivity extends Activity {
             adapter = new UserAdapter(ListContactActivity.this, userList);
             listView.setAdapter(adapter);
         }
+    }
+    @Override
+    public void onBackPressed() {
+
+        finish();
+        return;
     }
 }

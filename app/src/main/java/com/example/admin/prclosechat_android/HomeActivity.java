@@ -1,10 +1,7 @@
 package com.example.admin.prclosechat_android;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -20,10 +17,6 @@ public class HomeActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        ActionBar actionBar = getActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1f1f1f")));
-        actionBar.setTitle("Home");
-
         init();
 
     }
@@ -85,6 +78,11 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         mIntent = new Intent(HomeActivity.this, ListContactActivity.class);
         startActivity(mIntent);
     }
+    @Override
+    public void onBackPressed() {
 
+        finish();
+        return;
+    }
 
 }

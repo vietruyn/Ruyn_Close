@@ -37,6 +37,13 @@ public class DBHandler extends SQLiteOpenHelper implements UserListener {
     }
 
     @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL(DROP_TABLE);
+        onCreate(db);
+        super.onDowngrade(db, oldVersion, newVersion);
+    }
+
+    @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(DROP_TABLE);
         onCreate(db);
@@ -51,7 +58,7 @@ public class DBHandler extends SQLiteOpenHelper implements UserListener {
             db.insert(TABLE_NAME, null, values);
             db.close();
         }catch (Exception e){
-            Log.e("problem",e+"");
+            Log.e("problem", e + "");
         }
     }
 
@@ -75,7 +82,7 @@ public class DBHandler extends SQLiteOpenHelper implements UserListener {
             }
             db.close();
         }catch (Exception e){
-            Log.e("error",e+"");
+            Log.e("error", e + "");
         }
         return userList;
     }
@@ -91,7 +98,7 @@ public class DBHandler extends SQLiteOpenHelper implements UserListener {
             db.close();
             return num;
         }catch (Exception e){
-            Log.e("error",e+"");
+            Log.e("error", e + "");
         }
         return 0;
     }

@@ -45,20 +45,26 @@
             android:layout_margin="@dimen/size_20dp">
 
             <EditText
+                android:id="@+id/edtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size_40dp"
                 android:layout_marginBottom="@dimen/size_10dp"
                 android:background="@drawable/shape_editext"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textColor="@color/back1"
                 android:hint="@string/email"
 
                 android:paddingLeft="@dimen/size_10dp"
                 android:textColorHint="@color/text_hint" />
 
             <EditText
+                android:id="@+id/edtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size_40dp"
                 android:layout_marginBottom="@dimen/size_10dp"
                 android:background="@drawable/shape_editext"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textColor="@color/back1"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:paddingLeft="@dimen/size_10dp"

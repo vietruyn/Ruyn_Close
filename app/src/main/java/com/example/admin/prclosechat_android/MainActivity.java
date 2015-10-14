@@ -1,6 +1,5 @@
 package com.example.admin.prclosechat_android;
 
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -10,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.admin.prclosechat_android.fragment.LoginFragment;
 import com.example.admin.prclosechat_android.fragment.RegisterFragment;
@@ -17,20 +17,20 @@ import com.example.admin.prclosechat_android.fragment.RegisterFragment;
 public class MainActivity extends FragmentActivity {
 
     private LinearLayout lnLogin, lnSignUp;
-    private boolean detailPage = false;
     private Fragment fr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ActionBar actionBar = getActionBar();
-
-        actionBar.hide();
         init();
-        /**
-         * Event when frm is null
-         */
+        if(savedInstanceState==null ){
+            fr = new LoginFragment();
+            lnLogin.setBackgroundResource(R.color.click_button);
+            lnSignUp.setBackgroundResource(R.color.unclick_button);
+            callFragment(fr);
+        }
+        else return;
     }
 
     /**
@@ -39,8 +39,6 @@ public class MainActivity extends FragmentActivity {
     private void init() {
         lnLogin = (LinearLayout) findViewById(R.id.lnLogin);
         lnSignUp = (LinearLayout) findViewById(R.id.lnSignUp);
-        lnLogin.setBackgroundResource(R.color.click_button);
-        lnSignUp.setBackgroundResource(R.color.unclick_button);
     }
 
     /**
@@ -54,14 +52,16 @@ public class MainActivity extends FragmentActivity {
             fr = new RegisterFragment();
             lnSignUp.setBackgroundResource(R.color.click_button);
             lnLogin.setBackgroundResource(R.color.unclick_button);
+            callFragment(fr);
 
         } else {
             fr = new LoginFragment();
             lnLogin.setBackgroundResource(R.color.click_button);
             lnSignUp.setBackgroundResource(R.color.unclick_button);
+            callFragment(fr);
         }
 
-        callFragment(fr);
+
 
     }
 
@@ -93,5 +93,11 @@ public class MainActivity extends FragmentActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(MainActivity.this, "Thanks for using application!!", Toast.LENGTH_LONG).show();
+        finish();
+        return;
     }
 }
